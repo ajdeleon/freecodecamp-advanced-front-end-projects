@@ -9,10 +9,10 @@ const Header = () => {
         Home
         </Link>
         <ul className="right hide-on-medium-and-down">
-          <li key="item1"><a>Pomodoro</a></li>
-          <li key="item2"><a>Calculator</a></li>
-          <li key="item3"><a>Tic Tac Toe</a></li>
-          <li key="item4"><a>Simon Game</a></li>
+          <li key="item1"><Link to="/pomodoro">Pomodoro</Link></li>
+          <li key="item2"><Link to="/calculator">Calculator</Link></li>
+          <li key="item3"><Link to="/tictactoe">Tic Tac Toe</Link></li>
+          <li key="item4"><Link to="/simon">Simon Game</Link></li>
         </ul>  
       </div>
     </nav>
