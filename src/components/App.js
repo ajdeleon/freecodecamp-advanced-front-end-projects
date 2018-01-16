@@ -2,6 +2,7 @@ import './App.css'
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
+import Home from './home/Home'
 import Header from './Header'
 import Pomodoro from './pomodoro/Pomodoro'
 import TicTacToe from './tictactoe/TicTacToe'
@@ -15,6 +16,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
         <Header />
+        <Route exact path="/" component={Home} />
         <Route exact path="/pomodoro" component={Pomodoro} />
         <Route exact path="/calculator" component={Calculator} />
         <Route exact path="/tictactoe" component={TicTacToe} />

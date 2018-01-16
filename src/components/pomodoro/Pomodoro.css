@@ -1,6 +1,7 @@
-.main {
+.main-pomodoro {
   border: 2px solid;
   margin-top: 2em;
+  font-size: 1.2em
 }
 
 .controls {
@@ -8,6 +9,6 @@
 }
 
 div {
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
 }
 
