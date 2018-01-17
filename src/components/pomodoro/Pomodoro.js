@@ -1,25 +1,33 @@
 import React, { Component } from 'react'
 import './Pomodoro.css'
 
+import Button from './Button'
+
 class Pomodoro extends Component {
+  state = {
+    breakTime: 5,
+    sessionTime: 25,
+    session: 25
+  }
+
   render() {
     return(
       <div className="container main-pomodoro">
         <div className="row controls">
           <div className="col s6 center">
-            <a className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">remove</i></a>
-            5
-            <a className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></a>
+            <Button sign="remove" />
+            {this.state.breakTime}
+            <Button sign="add" />
           </div>
           <div className="col s6 center">
-          <a className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">remove</i></a>
-            25
-            <a className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></a>
+            <Button sign="remove" />
+            {this.state.sessionTime}
+            <Button sign="add" />
           </div>
         </div>
         <div className="row">
           <div className="col s6 offset-s3 center">
-            session 25
+            {this.state.session}
           </div>
         </div>
       </div>
