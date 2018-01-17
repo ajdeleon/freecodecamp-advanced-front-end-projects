@@ -13,7 +13,7 @@ const Home = () => {
     return <li key={name}><a href={url}>{name}</a></li>
   })
 
-  return(
+  return (
     <div className="container">
       <h5>Welcome to my repository of projects.</h5>
       <p>The projects here are based on the Advanced projects outlined on <a href="https://www.freecodecamp.com">freecodecamp.com</a></p>

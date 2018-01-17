@@ -10,20 +10,14 @@ class Pomodoro extends Component {
     session: 25
   }
 
-  sessionChange = (sign) => {
-    if (this.state.sessionTime) {
-      this.setState((state) => {
-        return sign === 'plus' ? {sessionTime: state.sessionTime + 1} : {sessionTime: state.sessionTime -1}
-      })
-    }
-  }
+  // change = (stateKey, step) => (state) => ({
+  //   [stateKey]: state[stateKey] + step
+  // })
 
-  breakChange = (sign) => {
-    if (this.state.breakTime) {
-      this.setState((state) => {
-        return sign === 'plus' ? {breakTime: state.breakTime + 1} : {breakTime: state.breakTime -1}
-      })
-    }
+  handleChange = (stateKey, step) => {
+    this.setState({
+      [stateKey]: this.state[stateKey] + step
+    })
   }
 
   render() {
@@ -31,14 +25,14 @@ class Pomodoro extends Component {
       <div className="container main-pomodoro">
         <div className="row controls">
           <div className="col s6 center">
-            <Button sign="remove" handleClick={() => this.breakChange('minus')}/>
+            <Button sign="remove" handleClick={() => this.handleChange('breakTime', -1)}/>
             {this.state.breakTime}
-            <Button sign="add" handleClick={() => this.breakChange('plus')}/>
+            <Button sign="add" handleClick={() => this.handleChange('breakTime', 1)}/>
           </div>
           <div className="col s6 center">
-            <Button sign="remove" handleClick={() => this.sessionChange('minus')}/>
+            <Button sign="remove" handleClick={() => this.handleChange('sessionTime', -1)}/>
             {this.state.sessionTime}
-            <Button sign="add" handleClick={() => this.sessionChange('plus')}/>
+            <Button sign="add" handleClick={() => this.handleChange('sessionTime', 1)}/>
           </div>
         </div>
         <div className="row">
