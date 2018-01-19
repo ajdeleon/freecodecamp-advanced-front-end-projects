@@ -4,6 +4,9 @@ import './Pomodoro.css'
 import Controls from './Controls'
 import Timer from './Timer'
 
+//todo
+//add in break functionality
+
 class Pomodoro extends Component {
   state = {
     breakTime: 5,
@@ -22,6 +25,7 @@ class Pomodoro extends Component {
 
   startTimer = () => {
     if (!this.state.timerRunning) {
+      
       let intervalId = setInterval(this.decrementTimer ,1000)
       this.setState({
         intervalId,
@@ -45,6 +49,14 @@ class Pomodoro extends Component {
     }
   }
 
+  resetTimer = () => {
+    clearInterval(this.state.intervalId)
+    this.setState({
+      timer: this.state.sessionTime,
+      timerRunning: false
+    })
+  }
+
   render() {
     return(
       <div className="container Pomodoro">
@@ -56,7 +68,8 @@ class Pomodoro extends Component {
         <Timer
         timer={this.state.timer}
         startTimer={this.startTimer}
-        stopTimer={this.stopTimer}/>
+        stopTimer={this.stopTimer}
+        resetTimer={this.resetTimer}/>
       </div>
     )
   }
