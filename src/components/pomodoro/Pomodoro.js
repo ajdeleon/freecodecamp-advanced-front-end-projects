@@ -2,19 +2,18 @@ import React, { Component } from 'react'
 import './Pomodoro.css'
 
 import Button from './Button'
+import Controls from './Controls'
+import Timer from './Timer'
 
 class Pomodoro extends Component {
   state = {
     breakTime: 5,
     sessionTime: 25,
-    session: 25
+    timer: 25
   }
 
-  // change = (stateKey, step) => (state) => ({
-  //   [stateKey]: state[stateKey] + step
-  // })
-
-  handleChange = (stateKey, step) => {
+  handleControlChange = (stateKey, step) => {
+    if ( this.state[stateKey] === 0 && step === -1) return
     this.setState({
       [stateKey]: this.state[stateKey] + step
     })
@@ -22,29 +21,13 @@ class Pomodoro extends Component {
 
   render() {
     return(
-      <div className="container main-pomodoro">
-        <div className="row controls">
-          <div className="col s6 center">
-            <Button sign="remove" handleClick={() => this.handleChange('breakTime', -1)}/>
-            {this.state.breakTime}
-            <Button sign="add" handleClick={() => this.handleChange('breakTime', 1)}/>
-          </div>
-          <div className="col s6 center">
-            <Button sign="remove" handleClick={() => this.handleChange('sessionTime', -1)}/>
-            {this.state.sessionTime}
-            <Button sign="add" handleClick={() => this.handleChange('sessionTime', 1)}/>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col s6 offset-s3 center">
-            Start
-          </div>
-        </div>
-        <div className="row">
-          <div className="col s6 offset-s3 center">
-            {this.state.session}
-          </div>
-        </div>
+      <div className="container Pomodoro">
+        <Controls
+        handleClick={this.handleControlChange}
+        breakTime={this.state.breakTime}
+        sessionTime={this.state.sessionTime}/>
+
+        <Timer timer={this.state.timer}/>
       </div>
     )
   }

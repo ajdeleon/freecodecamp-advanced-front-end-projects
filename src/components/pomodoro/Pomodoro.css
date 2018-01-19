@@ -1,14 +1,14 @@
-.main-pomodoro {
+.Pomodoro {
   border: 2px solid;
   margin-top: 2em;
   font-size: 2.5em
 }
 
-.controls {
+.Pomodoro .controls {
   margin-top: 1em;
 }
 
-.controls a {
+.Pomodoro .controls a {
   margin: 0px 8px 0px 8px
 }
 
