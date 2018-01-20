@@ -1,0 +1,112 @@
+.Calculator-wrapper {
+  margin: auto;
+  margin-top: 2em;
+  height: 420px;
+  width: 300px;
+  display: grid;
+  grid-template-areas:
+    "cd cd cd cd"
+    "cd cd cd cd"
+    "cf cf cf co"
+    "ck ck ck co"
+    "ck ck ck co"
+    "ck ck ck co"
+    "ck ck ck co";
+}
+
+.Calculator-wrapper > div {
+  border: 1px solid #000000;
+}
+
+.Calculator-wrapper > div > div {
+  border: 1px solid #777777;
+  text-align: center;
+  user-select: none;
+}
+
+.Calculator-wrapper > div > div:active {
+  box-shadow: inset 0px 0px 80px 0px rgba(66, 61, 61, 0.25);
+}
+
+.Calculator-display {
+  grid-area: cd;
+  text-align: right;
+  position: relative;
+}
+
+.Calculator-display > span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 2em;
+  margin-right: 5px;
+}
+
+.Calculator-functions {
+  grid-area: cf;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+.Calculator-operations {
+  grid-area: co;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr)
+}
+
+.Calculator-keypad {
+  grid-area: ck;
+  display: grid;
+  grid-template-areas: 
+  "seven eight nine"
+  "four five six"
+  "one two three"
+  "zero zero period";
+}
+
+
+
+.zero {
+  grid-area: zero;
+  text-align: left;
+}
+
+.period {
+  grid-area: period;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
