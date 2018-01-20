@@ -25,7 +25,8 @@
 }
 
 .Calculator-wrapper > div > div:active {
-  box-shadow: inset 0px 0px 80px 0px rgba(66, 61, 61, 0.25);
+  box-shadow: inset 0px 0px 60px 0px 
+  rgba(66, 61, 61, 0.25);
 }
 
 .Calculator-display {
@@ -38,7 +39,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 2em;
+  font-size: 4em;
   margin-right: 5px;
 }
 
