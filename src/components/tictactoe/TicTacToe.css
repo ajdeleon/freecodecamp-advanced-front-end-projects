@@ -1,0 +1,16 @@
+.TTT-wrapper {
+  margin: auto;
+  margin-top: 2em;
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 100px);
+}
+
+.TTT-box {
+  border: 1px solid #000000;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
