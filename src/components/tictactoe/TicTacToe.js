@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import './TicTacToe.css'
 
+import Box from './Box'
+
 class TicTacToe extends Component {
   // true = x; false = 0;
   state = {
     playerTurn: true,
-    boxArray: ["X", "X", "", "", "", "", "", "", ""],
+    boxArray: ["", "", "", "", "", "", "", "", ""],
     turnCount: 0
   }
 
@@ -28,6 +30,16 @@ class TicTacToe extends Component {
 
   calculateWinner() {
     return this.state.turnCount >= 9 && <h1>Winner!</h1>
+  }
+
+  renderBoxes() {
+    return this.state.boxArray.map((box, i) => {
+      return <Box
+      handleClick={this.playerMove}
+      currentBox={box}
+      index={i}
+      />
+    })
   }
 
   render() {
