@@ -5,33 +5,35 @@ class TicTacToe extends Component {
   // true = x; false = 0;
   state = {
     playerTurn: true,
-    boxArray: ["X", "X", "", "", "", "", "", "", ""]
+    boxArray: ["X", "X", "", "", "", "", "", "", ""],
+    turnCount: 0
   }
 
   playerMove(boxNum) {
-    let playerToken = this.state.playerTurn ? "X" : "O"
+    if (this.state.turnCount < 9) {
+      let playerToken = this.state.playerTurn ? "X" : "O"
       let tempArray = this.state.boxArray
+
       let updatedArray = tempArray.map((box, i) => {
         return boxNum === i ? playerToken : box
       })
+
       this.setState({
         playerTurn: !this.state.playerTurn,
-        boxArray: updatedArray
+        boxArray: updatedArray,
+        turnCount: this.state.turnCount + 1
       })
-      console.log(updatedArray)
-    // set the state based on updated Array
+    }
   }
 
-  renderBoxes() {
-    return this.state.boxArray.map((x, i) => {
-      return <div onClick={() => this.playerMove({i})}className="TTT-box">{x}</div>
-    })
+  calculateWinner() {
+    return this.state.turnCount >= 9 && <h1>Winner!</h1>
   }
 
   render() {
     return (
       <React.Fragment>
-      {/* <div className="TTT-wrapper">
+      <div className="TTT-wrapper">
         <div onClick={() => this.playerMove(0)}className="TTT-box">{this.state.boxArray[0]}</div>
         <div onClick={() => this.playerMove(1)}className="TTT-box">{this.state.boxArray[1]}</div>
         <div onClick={() => this.playerMove(2)}className="TTT-box">{this.state.boxArray[2]}</div>
@@ -41,9 +43,9 @@ class TicTacToe extends Component {
         <div onClick={() => this.playerMove(6)}className="TTT-box">{this.state.boxArray[6]}</div>
         <div onClick={() => this.playerMove(7)}className="TTT-box">{this.state.boxArray[7]}</div>
         <div onClick={() => this.playerMove(8)}className="TTT-box">{this.state.boxArray[8]}</div>
-      </div> */}
-      <div className="TTT-wrapper">
-        {this.renderBoxes()}
+      </div>
+      <div>
+        {this.calculateWinner()}
       </div>
       </React.Fragment>
     )
