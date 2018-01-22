@@ -11,7 +11,7 @@ class TicTacToe extends Component {
     turnCount: 0
   }
 
-  playerMove(boxNum) {
+  playerMove = (boxNum) => {
     if (this.state.turnCount < 9) {
       let playerToken = this.state.playerTurn ? "X" : "O"
       let tempArray = this.state.boxArray
@@ -38,6 +38,7 @@ class TicTacToe extends Component {
       handleClick={this.playerMove}
       currentBox={box}
       index={i}
+      key={i}
       />
     })
   }
@@ -46,15 +47,7 @@ class TicTacToe extends Component {
     return (
       <React.Fragment>
       <div className="TTT-wrapper">
-        <div onClick={() => this.playerMove(0)}className="TTT-box">{this.state.boxArray[0]}</div>
-        <div onClick={() => this.playerMove(1)}className="TTT-box">{this.state.boxArray[1]}</div>
-        <div onClick={() => this.playerMove(2)}className="TTT-box">{this.state.boxArray[2]}</div>
-        <div onClick={() => this.playerMove(3)}className="TTT-box">{this.state.boxArray[3]}</div>
-        <div onClick={() => this.playerMove(4)}className="TTT-box">{this.state.boxArray[4]}</div>
-        <div onClick={() => this.playerMove(5)}className="TTT-box">{this.state.boxArray[5]}</div>
-        <div onClick={() => this.playerMove(6)}className="TTT-box">{this.state.boxArray[6]}</div>
-        <div onClick={() => this.playerMove(7)}className="TTT-box">{this.state.boxArray[7]}</div>
-        <div onClick={() => this.playerMove(8)}className="TTT-box">{this.state.boxArray[8]}</div>
+        {this.renderBoxes()}
       </div>
       <div>
         {this.calculateWinner()}
