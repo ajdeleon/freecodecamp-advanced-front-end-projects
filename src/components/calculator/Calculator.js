@@ -4,6 +4,8 @@ import './Calculator.css'
 class Calculator extends Component {
   state = {
     displayValue: "0",
+    value: null,
+    waitingForOperand: false,
     operator: null
   }
   
@@ -16,9 +18,9 @@ class Calculator extends Component {
   changePlusMinus() {
     if (this.state.displayValue) {
       this.setState({
-        displayValue: this.state.displayValue.charAt(0) === "-" ?
+        displayValue: this.state.displayValue.charAt(0) === '-' ?
         this.state.displayValue.substr(1) :
-        "-" + this.state.displayValue
+        '-' + this.state.displayValue
       })
     }
   }
@@ -30,20 +32,63 @@ class Calculator extends Component {
   }
 
   inputDecimalPoint() {
-    if (!this.state.displayValue) {
+
+    if (this.state.waitingForOperand) {
       this.setState({
-        displayValue: "0." + this.state.displayValue
+        displayValue: "0.",
+        waitingForOperand: false
       })
-    } else if (this.state.displayValue.indexOf(".") === -1) {
+    } else if (this.state.displayValue.indexOf('.') === -1) {
       this.setState({
-        displayValue: this.state.displayValue + "."
+        displayValue: this.state.displayValue + '.',
+        waitingForOperand: false
       })
     }
   }
 
   inputDigit(digit) {
+    if (this.state.waitingForOperand) {
+      this.setState({
+        displayValue: String(digit),
+        waitingForOperand: false
+      })
+    } else {
+      this.setState({
+        displayValue: this.state.displayValue === "0" ? String(digit) : this.state.displayValue + String(digit)
+      })
+    }
+  }
+
+  performOperation(nextOperator) {
+    const { displayValue, operator, value } = this.state
+    
+    const nextValue = parseFloat(displayValue)
+    
+    const operations = {
+      "/": (prevValue, nextValue) => prevValue / nextValue,
+      "*": (prevValue, nextValue) => prevValue * nextValue,
+      "-": (prevValue, nextValue) => prevValue - nextValue,
+      "+": (prevValue, nextValue) => prevValue + nextValue,
+      "=": (prevValue, nextValue) => nextValue
+    }
+    
+    if (value == null) {
+      this.setState({
+        value: nextValue
+      })
+    } else if (operator) {
+      const currentValue = value || 0
+      const computedValue = operations[operator](currentValue, nextValue)
+      
+      this.setState({
+      value: computedValue,
+      displayValue: String(computedValue)
+      })
+    }
+    
     this.setState({
-      displayValue: this.state.displayValue === "0" ? String(digit) : this.state.displayValue + String(digit)
+      waitingForOperand: true,
+      operator: nextOperator
     })
   }
 
@@ -59,11 +104,11 @@ class Calculator extends Component {
           <div onClick={() => this.changePercentage()}>%</div>
         </div>
         <div className="Calculator-operations">
-          <div>÷</div>
-          <div>x</div>
-          <div>-</div>
-          <div>+</div>
-          <div>=</div>
+          <div onClick={() => this.performOperation("/")}>÷</div>
+          <div onClick={() => this.performOperation("*")}>x</div>
+          <div onClick={() => this.performOperation("-")}>-</div>
+          <div onClick={() => this.performOperation("+")}>+</div>
+          <div onClick={() => this.performOperation("=")}>=</div>
         </div>
         <div className="Calculator-keypad">
           <div onClick={() => this.inputDecimalPoint()}className="period">.</div>
