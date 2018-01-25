@@ -12,6 +12,8 @@ class TicTacToe extends Component {
   }
 
   playerMove = (boxNum) => {
+    if (!this.state.boxArray[boxNum])
+    
     if (this.state.turnCount < 9) {
       let playerToken = this.state.playerTurn ? "X" : "O"
       let tempArray = this.state.boxArray
