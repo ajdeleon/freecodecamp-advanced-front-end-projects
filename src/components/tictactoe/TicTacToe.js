@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './TicTacToe.css'
+import winningCombos from './winningCombos'
 
 import Box from './Box'
 
@@ -13,7 +14,7 @@ class TicTacToe extends Component {
 
   playerMove = (boxNum) => {
     if (!this.state.boxArray[boxNum])
-    
+
     if (this.state.turnCount < 9) {
       let playerToken = this.state.playerTurn ? "X" : "O"
       let tempArray = this.state.boxArray
@@ -31,7 +32,20 @@ class TicTacToe extends Component {
   }
 
   calculateWinner() {
-    return this.state.turnCount >= 9 && <h1>Winner!</h1>
+    if (this.state.turnCount >= 9){
+      const finalBoard = this.state.boxArray
+
+      for (var arr of winningCombos) {
+        let count = 0
+
+        for (var val of arr) {
+          if (finalBoard[val] === "X") {
+            count++
+          }
+          return count === 3 && <div>Player X has won!</div>
+        }
+      }
+    }
   }
 
   renderBoxes() {

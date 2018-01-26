@@ -1,0 +1,11 @@
+.Simon-container {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 100px;
+  grid-auto-flow: column;
+}
+
+.game-button {
+  border: 1px solid black; 
+}
