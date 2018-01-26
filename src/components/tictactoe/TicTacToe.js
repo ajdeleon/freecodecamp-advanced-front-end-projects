@@ -9,11 +9,19 @@ class TicTacToe extends Component {
   state = {
     playerTurn: true,
     boxArray: ["", "", "", "", "", "", "", "", ""],
-    turnCount: 0
+    turnCount: 0,
+    gameOver: false,
+    winner: ""
+  }
+
+  componentDidUpdate() {
+    if (!this.state.gameOver) {
+      this.calculateWinner()
+    }
   }
 
   playerMove = (boxNum) => {
-    if (!this.state.boxArray[boxNum])
+    if (!this.state.gameOver && !this.state.boxArray[boxNum])
 
     if (this.state.turnCount < 9) {
       let playerToken = this.state.playerTurn ? "X" : "O"
@@ -32,20 +40,26 @@ class TicTacToe extends Component {
   }
 
   calculateWinner() {
-    if (this.state.turnCount >= 9){
-      const finalBoard = this.state.boxArray
+      let currentBoard = this.state.boxArray
 
       for (var arr of winningCombos) {
-        let count = 0
+        let a = arr[0]
+        let b = arr[1]
+        let c = arr[2]
 
-        for (var val of arr) {
-          if (finalBoard[val] === "X") {
-            count++
-          }
-          return count === 3 && <div>Player X has won!</div>
+        if (currentBoard[a] === "X" && currentBoard[b] === "X" && currentBoard[c] === "X") {
+          this.setState({
+            gameOver: true,
+            winner: "X"
+          })
+        }
+        if (currentBoard[a] === "O" && currentBoard[b] === "O" && currentBoard[c] === "O") {
+          this.setState({
+            gameOver: true,
+            winner: "O"
+          })
         }
       }
-    }
   }
 
   renderBoxes() {
@@ -59,14 +73,26 @@ class TicTacToe extends Component {
     })
   }
 
+  reset(){
+    this.setState({
+      playerTurn: true,
+      boxArray: ["", "", "", "", "", "", "", "", ""],
+      turnCount: 0,
+      gameOver: false
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
+      {this.state.gameOver &&
+        <div className="winMessage">
+          <h5>{this.state.winner} is the winner!</h5>
+          <button onClick={() => this.reset()}>Reset</button>
+        </div>
+      }
       <div className="TTT-wrapper">
         {this.renderBoxes()}
-      </div>
-      <div>
-        {this.calculateWinner()}
       </div>
       </React.Fragment>
     )
