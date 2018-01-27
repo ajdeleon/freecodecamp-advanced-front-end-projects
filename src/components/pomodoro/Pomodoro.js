@@ -34,14 +34,6 @@ class Pomodoro extends Component {
     }
   }
 
-  decrementTimer = () => {
-    this.setState(state => {
-      return {
-        timer: state.timer - 1
-      }
-    })
-  }
-
   stopTimer = () => {
     if (this.state.timerRunning) {
       clearInterval(this.state.intervalId)
@@ -54,6 +46,14 @@ class Pomodoro extends Component {
     this.setState({
       timer: this.state.sessionTime,
       timerRunning: false
+    })
+  }
+
+  decrementTimer = () => {
+    this.setState(state => {
+      return {
+        timer: state.timer - 1
+      }
     })
   }
 

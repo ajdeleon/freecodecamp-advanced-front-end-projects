@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import './Pomodoro.css'
 
 const Timer = ({ timer, startTimer, stopTimer, resetTimer }) => {
   return (
@@ -15,7 +16,7 @@ const Timer = ({ timer, startTimer, stopTimer, resetTimer }) => {
           </div>
         </div>
     <div className="row">
-      <div className="col s6 offset-s3 center">
+      <div className="col s6 offset-s3 center timer">
         {timer}
       </div>
     </div>

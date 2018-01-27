@@ -1,6 +1,6 @@
 .Pomodoro {
-  border: 2px solid;
-  margin-top: 2em;
+  border: 1.5px solid;
+  margin-top: 1em;
   font-size: 2.5em
 }
 
@@ -12,3 +12,10 @@
   margin: 0px 8px 0px 8px
 }
 
+button {
+  font-size: 0.6em;
+}
+
+.timer {
+  font-size: 2em;
+}
