@@ -1,11 +1,41 @@
 .Simon-container {
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 100px;
+  margin: 2em 5em;
 }
 
 .game-button {
-  border: 1px solid black; 
-  background-color: red;
+  border: 5px solid;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%
+}
+
+.first-row {
+  display: flex;
+  justify-content: center;
+}
+
+.second-row {
+  display: flex;
+  justify-content: space-between
+}
+
+.third-row {
+  display: flex;
+  justify-content: center;
+}
+
+#one {
+  border-color: red;
+}
+
+#two {
+  border-color: yellow;
+}
+
+#three {
+  border-color: blue;
+}
+
+#four {
+  border-color: rgb(224, 98, 224);
 }
