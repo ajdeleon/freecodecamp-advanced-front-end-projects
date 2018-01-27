@@ -50,16 +50,32 @@ class TicTacToe extends Component {
         if (currentBoard[a] === "X" && currentBoard[b] === "X" && currentBoard[c] === "X") {
           this.setState({
             gameOver: true,
-            winner: "X"
+            winner: "X is the winner!"
           })
         }
         if (currentBoard[a] === "O" && currentBoard[b] === "O" && currentBoard[c] === "O") {
           this.setState({
             gameOver: true,
-            winner: "O"
+            winner: "O is the winner!"
           })
         }
       }
+
+      if (this.state.turnCount === 9 && this.state.gameOver === false) {
+        this.setState({
+          gameOver: true,
+          winner: "Nobody wins!"
+        })
+      }
+  }
+
+  reset(){
+    this.setState({
+      playerTurn: true,
+      boxArray: ["", "", "", "", "", "", "", "", ""],
+      turnCount: 0,
+      gameOver: false
+    })
   }
 
   renderBoxes() {
@@ -73,21 +89,12 @@ class TicTacToe extends Component {
     })
   }
 
-  reset(){
-    this.setState({
-      playerTurn: true,
-      boxArray: ["", "", "", "", "", "", "", "", ""],
-      turnCount: 0,
-      gameOver: false
-    })
-  }
-
   render() {
     return (
       <React.Fragment>
       {this.state.gameOver &&
         <div className="winMessage">
-          <h5>{this.state.winner} is the winner!</h5>
+          <h5>{this.state.winner}</h5>
           <button onClick={() => this.reset()}>Reset</button>
         </div>
       }
