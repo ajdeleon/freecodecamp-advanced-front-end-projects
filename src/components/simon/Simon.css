@@ -24,18 +24,18 @@
   justify-content: center;
 }
 
-#one {
+#top {
   border-color: red;
 }
 
-#two {
-  border-color: yellow;
+#right {
+  border-color: rgb(250, 247, 73);
 }
 
-#three {
+#bottom {
   border-color: blue;
 }
 
-#four {
+#left {
   border-color: rgb(224, 98, 224);
 }
