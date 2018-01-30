@@ -55,3 +55,9 @@
 .left-active, .left:active {
   background-color: rgb(224, 98, 224);
 }
+
+.round-display {
+  font-size: 2rem;
+  padding-top: 25px;
+  justify-self: center;
+}
