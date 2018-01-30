@@ -28,14 +28,30 @@
   border-color: red;
 }
 
+#top:active {
+  background-color: red;
+}
+
 #right {
   border-color: rgb(250, 247, 73);
+}
+
+#right:active {
+  background-color: rgb(250, 247, 73);
 }
 
 #bottom {
   border-color: blue;
 }
 
+#bottom:active {
+  background-color: blue;
+}
+
 #left {
   border-color: rgb(224, 98, 224);
+}
+
+#left:active {
+  background-color: rgb(224, 98, 224);
 }
