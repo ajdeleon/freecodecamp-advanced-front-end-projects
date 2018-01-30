@@ -24,34 +24,34 @@
   justify-content: center;
 }
 
-#top {
+.top {
   border-color: red;
 }
 
-#top:active {
+.top-active, .top:active {
   background-color: red;
 }
 
-#right {
+.right {
   border-color: rgb(250, 247, 73);
 }
 
-#right:active {
+.right-active, .right:active {
   background-color: rgb(250, 247, 73);
 }
 
-#bottom {
+.bottom {
   border-color: blue;
 }
 
-#bottom:active {
+.bottom-active, .bottom:active {
   background-color: blue;
 }
 
-#left {
+.left {
   border-color: rgb(224, 98, 224);
 }
 
-#left:active {
+.left-active, .left:active {
   background-color: rgb(224, 98, 224);
 }
