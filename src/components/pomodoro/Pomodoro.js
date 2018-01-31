@@ -59,7 +59,7 @@ class Pomodoro extends Component {
 
   render() {
     return(
-      <div className="container Pomodoro">
+      <div className="mw5 mw7-ns center pa3 ph5-ns">
         <Controls
         handleClick={this.handleControlChange}
         breakTime={this.state.breakTime}

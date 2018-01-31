@@ -1,4 +1,4 @@
-import 'materialize-css/dist/css/materialize.min.css'
+import 'tachyons/css/tachyons.min.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

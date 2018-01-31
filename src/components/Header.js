@@ -3,19 +3,13 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <nav>
-      <div className="nav-wrapper blue darken-3">
-        <Link to={'/'} className="left brand-logo">
-        Home
-        </Link>
-        <ul className="right hide-on-medium-and-down">
-          <li key="item1"><Link to="/pomodoro">Pomodoro</Link></li>
-          <li key="item2"><Link to="/calculator">Calculator</Link></li>
-          <li key="item3"><Link to="/tictactoe">Tic Tac Toe</Link></li>
-          <li key="item4"><Link to="/simon">Simon Game</Link></li>
-        </ul>  
-      </div>
-    </nav>
+     <nav className="pa3 pa4-ns bg-blue">
+      <Link to={'/'} className="link dim white b f7 f4-ns dib mr3">Home</Link>
+      <Link to="/pomodoro" className="link dim white f6 f5-ns dib mr3">Pomodoro</Link>
+      <Link to="/calculator" className="link dim white f6 f5-ns dib mr3">Calculator</Link>
+      <Link to="/tictactoe" className="link dim white f6 f5-ns dib mr3">Tic Tac Toe</Link>
+      <Link to="/simon" className="link dim white f6 f5-ns dib">Simon Game</Link>
+   </nav>
   )
 }
 

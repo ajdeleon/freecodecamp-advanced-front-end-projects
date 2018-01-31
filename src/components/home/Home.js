@@ -14,8 +14,8 @@ const Home = () => {
   })
 
   return (
-    <div className="container">
-      <h5>Welcome to my repository of projects.</h5>
+    <div className="pl4">
+      <h3>Welcome to my repository of projects.</h3>
       <p>The projects here are based on the Advanced projects outlined on <a href="https://www.freecodecamp.com">freecodecamp.com</a></p>
       <p>I chose to use React as the main framework. The following libraries are also in use:</p>
       <ul className="browser-default">
